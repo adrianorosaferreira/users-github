@@ -1,7 +1,8 @@
+'use strict';
 
 angular.module('githubContributors.services', ['ngResource'])
     .factory('githubResource', function ($resource) {
-        'use strict';
+
         return $resource('https://api.github.com/:query/:user/:repo/:spec', {
             'query': 'users',
             'user': 'angular',
