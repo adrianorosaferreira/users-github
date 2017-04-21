@@ -1,0 +1,178 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Cadastro de Pessoas</div>
+    
+    <div class="panel-body">
+    
+    	<div class="alert alert-dismissible alert-danger" ng-show="showMensagem">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong ng-show="mensagem.titulo">{{mensagem.titulo}}</strong>
+            <br>
+            <span ng-show="mensagem.texto">{{mensagem.texto}}</span>
+        </div>
+    
+    
+		<div class="col-md-8 col-md-offset-2 col-lg-12 col-lg-offset-0">
+            
+            <form name="form" ng-submit="submitForm()" novalidate>
+            
+            	<div class="row">
+            		<div class="col-md-12 col-lg-6">
+		            	<div class="form-group" ng-class="{ 'has-error' : form.nome.$invalid && (form.nome.$touched || form.$submitted) }">
+							<label>Nome</label>
+							<input type="text" class="form-control" name="nome" placeholder="Nome Completo" ng-model="pessoa.nome" required>
+		                    <div class="help-block" ng-messages="form.nome.$error" ng-if="form.nome.$invalid && (form.nome.$touched || form.$submitted)">
+		                        <p ng-message="required">Nome é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-6">
+						<div class="form-group" ng-class="{ 'has-error' : form.email.$invalid && (form.email.$touched || form.$submitted) }">
+							<label>Email</label>
+							<input type="text" class="form-control" name="email" placeholder="E-mail" ng-model="pessoa.email" required>
+		                    <div class="help-block" ng-messages="form.email.$error" ng-if="form.email.$invalid && (form.email.$touched || form.$submitted)">
+		                        <p ng-message="required">E-mail é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" ng-class="{ 'has-error' : form.cep.$invalid && (form.cep.$touched || form.$submitted) }">
+							<label>CEP</label>
+							<input cep type="text" class="form-control" name="cep" ng-model="pessoa.cep">
+		                    <div class="help-block" ng-messages="form.cep.$error" ng-if="form.cep.$invalid && (form.cep.$touched || form.$submitted)">
+		                        <p ng-message="required">CEP é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group" ng-class="{ 'has-error' : form.cpf.$invalid && (form.cpf.$touched || form.$submitted) }">
+							<label>CPF</label>
+							<input cpf type="text" class="form-control" name="cpf" ng-model="pessoa.cpf">
+		                    <div class="help-block" ng-messages="form.cpf.$error" ng-if="form.cpf.$invalid && (form.cpf.$touched || form.$submitted)">
+		                        <p ng-message="required">CPF é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group" ng-class="{ 'has-error' : form.telefone.$invalid && (form.telefone.$touched || form.$submitted) }">
+							<label>Telefone</label>
+							<input telefone type="text" class="form-control" name="telefone" ng-model="pessoa.telefone">
+		                    <div class="help-block" ng-messages="form.telefone.$error" ng-if="form.telefone.$invalid && (form.telefone.$touched || form.$submitted)">
+		                        <p ng-message="required">Telefone é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group" ng-class="{ 'has-error' : form.nascimento.$invalid && (form.telnascimentoefone.$touched || form.$submitted) }">
+							<label>Data de Nascimento</label>
+							<input bs-datepicker
+			 	    				class="form-control calendar" ng-model="pessoa.nascimento" name="nascimento" data-autoclose="1"
+			 	    				data-date-format="dd/MM/yyyy"  type="text" placeholder="Data de Nascimento"/>
+		                    <div class="help-block" ng-messages="form.nascimento.$error" ng-if="form.nascimento.$invalid && (form.nascimento.$touched || form.$submitted)">
+		                        <p ng-message="required">Telefone é obrigatório</p>
+		                    </div>
+						</div>
+					</div>
+				</div>
+            
+            	
+            	<div class="text-right">
+					<button type="button" class="btn btn-warning" ng-click="voltar()">Cancelar</button>
+					<button type="submit" class="btn btn-success">Salvar</button>
+				</div>
+            </form>
+        </div>
+ 	</div>
+</div>
+
+
+<br>   
+
+<!-- 
+<div class="row">
+    <div class="col-xs-3">
+        <h3>Form</h3>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td ng-class="{ success: form.$valid }">Valid</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ success: form.$pristine }">Pristine</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.$dirty }">Dirty</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.$submitted }">Submitted</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-3">
+        <h3>Nome</h3>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td ng-class="{ success: form.nome.$valid }">Valid</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ success: form.nome.$pristine }">Pristine</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.nome.$dirty }">Dirty</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.nome.$touched }">Touched</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-orange': form.nome.$invalid }">Error</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-3">
+        <h3>E-mail</h3>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td ng-class="{ success: form.email.$valid }">Valid</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ success: form.email.$pristine }">Pristine</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.email.$dirty }">Dirty</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.email.$touched }">Touched</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-3">
+        <h3>Data Nascimento</h3>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td ng-class="{ success: form.nascimento.$valid, danger: form.nascimento.$invalid }">Valid</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ success: form.nascimento.$pristine, danger: !form.nascimento.$pristine }">Pristine</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.nascimento.$dirty }">Dirty</td>
+                </tr>
+                <tr>
+                    <td ng-class="{ 'bg-blue': form.nascimento.$touched }">Touched</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ -->

@@ -1,0 +1,33 @@
+<h3>Lista de Pessoas</h3>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Nome</th>
+			<th class="hidden-xs">Email</th>
+			<th class="hidden-xs hidden-sm">CEP</th>
+			<th class="hidden-xs">CPF</th>
+			<th class="hidden-xs">Nascimento</th>
+			<th style="text-align:center;">Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="pessoa in lista">
+			<td><span data-ng-bind="pessoa.id"></span></td>
+			<td><span data-ng-bind="pessoa.nome"></span></td>
+			<td class="hidden-xs"><span data-ng-bind="pessoa.email"></span></td>
+			<td class="hidden-xs hidden-sm"><span data-ng-bind="pessoa.cep | cep"></span></td>
+			<td class="hidden-xs"><span data-ng-bind="pessoa.cpf | cpf"></span></td>
+			<td class="hidden-xs"><span data-ng-bind="pessoa.nascimento | date:'dd/MM/yyyy'"></span></td>
+			<td><div class="text-right">
+					<button class="btn btn-sm btn-warning" data-ng-click="updatePessoa(pessoa.id)">Alterar</button> 
+					<button class="btn btn-sm btn-danger" data-ng-click="deletePessoa(pessoa.id)">Remover</button>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<br/>
+<a class="btn btn-sm btn-info" href="#/pessoa/new">Novo</a> 
+	
