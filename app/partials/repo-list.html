@@ -16,7 +16,7 @@
         <tbody>
             <tr ng-repeat="repo in repos.data | orderBy:'-watchers'" class="repo">
                 <td><span ng-bind="1"></span></td>
-                <td class="col-lg-3"><span ng-bind="repo.name"><a href="#/github/{{repo.full_name}}/"></a></span></td>
+                <td><span ng-bind="repo.name"><a href="#/github/{{repo.full_name}}/"></a></span></td>
                 <td><span ng-bind="repo.description"></span></td>
                 <td><span ng-bind="repo.fork">
                     <ng-pluralize count="repo.forks" when="forkForms"></ng-pluralize>
