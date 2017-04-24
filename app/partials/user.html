@@ -1,49 +1,53 @@
-<!--
-Copyright (c) 2012, Yahoo! Inc.
-Copyright (c) 2012, David Haglund
-All rights reserved.
-
-The code html structure has been copied from
-http://yuilibrary.com/yui/docs/app/app-contributors.html,
-licensed under the BSD License:
-http://yuilibrary.com/license/
-
-The code code has been adapted to angularJS from YUI3.
--->
 <div ng-controller="UserCtrl">
-    <div class="yui3-g">
-        <p class="back yui3-u-1-2">
-            <a href="#/">« Choose Someone Different</a>
-        </p>
-        <p class="view-on-github yui3-u-1-2">
-            <a href="{{user_info.data.html_url}}">View on GitHub</a>
-        </p>
+    <!-- Itens da barra de navegacao superior -->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"> GitHub</a>
     </div>
-    <div class="yui3-g">
-        <div class="info yui3-u-2-3">
-            <h1>
-                <span class="avatar user-avatar">
-                    <img ng-src="{{user_info.data.avatar_url}}" alt="{{user_info.data.login}}'s avatar" />
-                </span>
-                <span class="user-login">{{user_info.data.login}}</span>
-                <span ng-show="user_info.data.name" class="user-name">
-                    ({{user_info.data.name}})
-                </span>
-            </h1>
-        </div>
-        <div class="stats yui3-u-1-3">
-            <ul class="yui3-g">
-                <li class="user-repos yui3-u-1-2">
-                    <b>{{user_info.data.public_repos}}</b>
-                    <ng-pluralize count="user_info.data.public_repos" when="publicRepoForms">
-                    </ng-pluralize>
-                </li>
-                <li class="user-followers yui3-u-1-2">
-                    <b>{{user_info.data.followers}}</b>
-                    <ng-pluralize count="user_info.data.followers" when="followerForms">
-                    </ng-pluralize>
-                </li>
-            </ul>
-        </div>
+
+    <ul class="nav navbar-right top-nav">
+        <li class="dropdown">
+            <a href="{{user_info.data.html_url}}">Visão no GitHub</a>
+        </li>
+    </ul>
+    <!-- navbar superior-->
+
+    <!-- Itens do menu da barra lateral -->
+    <div class="navbar-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <div class="info col-md-12">
+                  <img src="{{user_info.data.avatar_url}}" alt="{{user_info.data.login}}'s avatar">
+                  
+                  <div class="caption">
+                    <span class="user-name" ng-show="user_info.data.name" >
+                        <h3>{{user_info.data.name}}</h3>
+                    </span>
+                    <span class="user-login">
+                        <h4>({{user_info.data.login}})</h4>
+                    </span>
+                    <span class="user-bio" ng-show="user_info.data.bio">
+                        <p>
+                            <h5>{{user_info.data.bio}}<h5>
+                        </p>
+                    </span>
+                  </div>
+
+            </div>
+            <div class="stats col-md-12">
+                <ul class="">
+                    <li class="user-repos">
+                        <b>{{user_info.data.public_repos}}</b>
+                        <ng-pluralize count="user_info.data.public_repos" when="publicRepoForms">
+                        </ng-pluralize>
+                    </li>
+                    <li class="user-followers">
+                        <b>{{user_info.data.followers}}</b>
+                        <ng-pluralize count="user_info.data.followers" when="followerForms">
+                        </ng-pluralize>
+                    </li>
+                </ul>
+            </div>    
+        </ul>
     </div>
+    <!-- /.navbar-collapse -->
+
 </div>

@@ -2,8 +2,8 @@
 
 angular.module('githubContributors.controller')
 .controller('RepoCtrl',
-        ['$scope', '$routeParams', '$githubResource',   
-            function($scope, $routeParams, $githubResource) {
+        ['$scope', '$routeParams', 'githubResource',   
+            function($scope, $routeParams, githubResource) {
 
     var watchForms = {
         '1': 'Watcher',
@@ -14,17 +14,14 @@ angular.module('githubContributors.controller')
         'other': 'Forks'
     };
 
-	function RepoCtrl($scope, $routeParams, githubResource) {
+    $scope.repoInfo = githubResource.get({
+        'query': 'repos',
+        'user': $routeParams.user,
+        'repo': $routeParams.repo
+    });
 
-	    $scope.repoInfo = githubResource.get({
-	        'query': 'repos',
-	        'user': $routeParams.user,
-	        'repo': $routeParams.repo
-	    });
+    $scope.watchForms = watchForms;
+    $scope.forkForms = forkForms;
 
-	    $scope.watchForms = watchForms;
-	    $scope.forkForms = forkForms;
-	}
-	RepoCtrl.$inject = ['$scope', '$routeParams', 'githubResource'];
 
 }]);
