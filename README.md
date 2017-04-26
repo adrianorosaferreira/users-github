@@ -9,8 +9,8 @@ Este projeto exibe os repositorios de um usuario do GitHub utilizando-se das seg
 
 Demo
 ----
-Demonstraço da aplicação pelo [pages.github].
-Demonstraço da aplicação pelo [Heroku].
+- Demonstraço da aplicação pelo [pages.github]
+- Demonstraço da aplicação pelo [Heroku]
 
 [pages.github]: https://adrianorosaferreira.github.io/users-github/
 [Heroku]: https://users-github.herokuapp.com/
