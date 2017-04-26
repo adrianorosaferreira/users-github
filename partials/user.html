@@ -1,4 +1,5 @@
-<div ng-controller="UserCtrl">
+<div ng-controller="UserCtrl" ng-show="user_info.data.message!='Not Found'">
+
     <!-- Itens da barra de navegacao superior -->
     <div class="navbar-header">
         <a class="navbar-brand" href="index.html"> GitHub</a>
@@ -33,7 +34,7 @@
 
             </div>
             <div class="stats col-md-12">
-                <ul class="">
+                <ul>
                     <li class="user-repos">
                         <b>{{user_info.data.public_repos}}</b>
                         <ng-pluralize count="user_info.data.public_repos" when="publicRepoForms">
@@ -45,7 +46,20 @@
                         </ng-pluralize>
                     </li>
                 </ul>
-            </div>    
+            </div>
+            </br>
+            <div class="col-md-12">
+                <a class="linkNote col-md-12" type="button" data-toggle="collapse" data-target="#note">Observação</a>
+
+                <div id="note" class="collapse col-lg-12">
+                
+                    <textarea class="form-control" ng-model="note" rows="5" id="comment" placeholder="Insira aqui seu comentario"></textarea>
+                    </br>
+                    <button ng-click="makeNote()" type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#note">Salvar</button>
+
+                </div>   
+            </div>
+            
         </ul>
     </div>
     <!-- /.navbar-collapse -->

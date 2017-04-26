@@ -2,13 +2,13 @@
 
 angular.module('githubContributors.controller')
 .controller('SearchCtrl',
-        ['$scope', '$location',   
-            function($scope, $location) {
+        ['$scope', '$location', '$http',  
+            function($scope, $location, $http) {
 
     $scope.user = 'adrianorosaferreira';
 
     $scope.userSearch = function () {
-        $location.path('/github/' + $scope.user + '/');
+        $location.path('/github/' + $scope.user + '/'); 
     };
     
 }]);

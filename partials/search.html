@@ -1,25 +1,28 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div>
-        <div class="navbar-header">
-            <span class="navbar-brand page-scroll">GitHub</span>
-        </div>
-    </div>
-</nav>
+<div ng-controller="SearchCtrl">
 
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <form ng-submit="userSearch()">
-                <h1 id="homeHeading">Perfil de Usuario</h1>
-                <hr>
-                <p>Pesquisa de projetos de usuarios do GitHub</p>
-                <input class="inputUsername" type="text" ng-model="user" value="{{user}}" placeholder="Username"></br>
-                <button class="btn btn-primary btn-xl">
-                    <!-- <i class="icon-search"></i> -->
-                    Pesquisar
-                </button>
-            </form>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div>
+            <div class="navbar-header">
+                <span class="navbar-brand page-scroll">GitHub</span>
+            </div>
         </div>
-    </div>
-</header>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <form ng-submit="userSearch()">
+                    <h1 id="homeHeading">Perfil de Usuario</h1>
+                    <hr>
+                    <p>Pesquisa de projetos de usuarios do GitHub</p>
+                    <input class="inputUsername" type="text" ng-model="user" value="{{user}}" placeholder="Username"></br>
+                    <button class="btn btn-primary btn-xl">
+                        <!-- <i class="icon-search"></i> -->
+                        Pesquisar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+</div>
 

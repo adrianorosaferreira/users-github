@@ -3,6 +3,14 @@ body {
     margin-top: 100px;
     background-color: #222;
 }
+.linkNote {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
 div .info {
     padding: 15px;
     text-align: center;

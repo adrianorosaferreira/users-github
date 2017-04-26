@@ -2,7 +2,7 @@
 
 angular.module('githubContributors.controller')
 .controller('RepoListCtrl',
-        ['$scope', '$routeParams', 'githubResource',   
+        ['$scope', '$routeParams', 'githubResource', 
             function($scope, $routeParams, githubResource) {
 
     var watchForms = {
