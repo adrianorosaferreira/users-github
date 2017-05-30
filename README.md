@@ -10,8 +10,8 @@ Este projeto exibe os repositorios de um usuario do GitHub utilizando-se das seg
 
 Demo
 ----
-- Demonstraço da aplicação pelo [pages.github]
-- Demonstraço da aplicação pelo [Heroku]
+- Demonstração da aplicação pelo [pages.github]
+- Demonstração da aplicação pelo [Heroku]
 
 Obs: Esta aplicação ainda está em desenvolvimento.
 
